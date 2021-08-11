@@ -3,7 +3,6 @@ header {
   display: flex;
   width: 100%;
   height: 90px;
-  border-bottom: 2px solid #000000;
 }
 header > nav {
   width: 100%;
@@ -36,12 +35,14 @@ header > nav > ul > li:nth-of-type(1) {
   position: absolute;
   top: 4px;
   left: 0;
+  animation: logo 80s infinite alternate-reverse backwards;
 }
 header > nav > ul > li:nth-of-type(1) > a {
   padding: 0;
 }
 header > nav > ul > li:nth-of-type(1) > a > img {
-  width: 93px;
+  width: 60px;
+  margin: 3px;
 }
 header > nav > ul > li:nth-of-type(1) > .active {
   background: none;
@@ -49,8 +50,8 @@ header > nav > ul > li:nth-of-type(1) > .active {
 header > nav > ul > li:nth-of-type(2) {
   display: none;
   position: absolute;
-  left: 4em;
-  margin-top: -0.15em;
+  left: 2.9em;
+  margin-top: 1em;
   padding: 0;
 }
 header > nav > ul > li:nth-of-type(2) > a {
@@ -68,26 +69,50 @@ header > nav > ul > li:nth-of-type(3) > a {
   font-size: 19px;
 }
 
+@keyframes logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (min-width: 768px) {
   header {
-    height: 62px;
+    height: 53px;
+    border-bottom: 0.1px solid #000000;
   }
   header > nav > ul {
     flex-direction: row;
     margin: 0;
-    margin-right: 1em;
-    margin-top: 1.2em;
+    margin-top: -1px;
     justify-content: flex-end;
     align-items: baseline;
   }
+  header > nav > ul > li > a {
+    height: 54px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  header > nav > ul > li:nth-of-type(1) > a {
+    height: auto;
+    width: auto;
+    display: block;
+  }
   header > nav > ul > li:nth-of-type(1) > a > img {
-    width: 63px;
+    width: 35px;
   }
   header > nav > ul > li:nth-of-type(2) {
     display: block;
+    left: 3em;
+    margin-top: 0.5em;
   }
-  header > nav > ul > li:nth-of-type(3) {
-    margin-right: 1em;
+  header > nav > ul > li:nth-of-type(2) > a {
+    width: auto;
+    height: auto;
   }
 }
 

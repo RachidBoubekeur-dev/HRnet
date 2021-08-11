@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from './components/dumb/Header';
+import { Create } from './containers/Create';
 import { Footer } from './components/dumb/Footer';
 import './App.css';
 
@@ -28,7 +29,9 @@ export const App = () => {
                         <Route path="/employee-list" exact>
                             {/* <List /> */}
                         </Route>
-                        <Route path="/">{/* <Create /> */}</Route>
+                        <Route path="/">
+                            <Create />
+                        </Route>
                     </Switch>
                 </main>
                 <Footer />
