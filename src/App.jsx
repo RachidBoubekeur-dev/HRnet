@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from './components/dumb/Header';
+import { Footer } from './components/dumb/Footer';
 import './App.css';
 
 export const App = () => {
@@ -30,7 +31,7 @@ export const App = () => {
                         <Route path="/">{/* <Create /> */}</Route>
                     </Switch>
                 </main>
-                {/* <Footer/> */}
+                <Footer />
             </Router>
         </div>
     );
