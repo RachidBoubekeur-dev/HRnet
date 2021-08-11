@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Header } from './components/dumb/Header';
+import './App.css';
 
 export const App = () => {
     const [loading, setLoading] = useState(true);
@@ -12,17 +14,20 @@ export const App = () => {
         <div className="App">
             {loading && (
                 <div className="loading">
-                    <p>loading</p>
+                    <div>{/*Logo loading */}</div>
+                    <div>
+                        <p>{/*Bar loading */}</p>
+                    </div>
                 </div>
             )}
             <Router>
-                {/* <Header /> */}
+                <Header />
                 <main>
                     <Switch>
                         <Route path="/employee-list" exact>
-                            {/* <Employee/> */}
+                            {/* <List /> */}
                         </Route>
-                        <Route path="/">{/* <Home/> */}</Route>
+                        <Route path="/">{/* <Create /> */}</Route>
                     </Switch>
                 </main>
                 {/* <Footer/> */}
