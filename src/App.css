@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Georama:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap");
+.App > .loading {
+  z-index: 1;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.App > .loading > div:nth-of-type(1) {
+  background: url("./assets/logo.jpg") no-repeat center;
+  width: 100%;
+  height: 271px;
+}
+.App > .loading > div:nth-of-type(2) {
+  width: 200px;
+  height: 6px;
+  background: #ffffff;
+  border: 2.5px solid #000000;
+  border-radius: 10px;
+  margin-right: 7px;
+  padding: 0;
+  z-index: 1;
+}
+.App > .loading > div:nth-of-type(2) > p {
+  margin: 0px 0px 0px -0.5px;
+  width: 101%;
+  background: #000000;
+  height: 7px;
+  border-radius: 1px;
+  animation: barLoad 3000ms backwards;
+}
+
+@keyframes barLoad {
+  0% {
+    width: 0%;
+    background: #000000;
+  }
+  100% {
+    width: 101%;
+    background: #000000;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */
