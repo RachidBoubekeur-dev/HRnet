@@ -8,7 +8,7 @@ export const App = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 3100);
     }, []);
     return (
         <div className="App">
