@@ -1,5 +1,8 @@
 import './footer.css';
 
+/**
+ * Footer component dump
+ */
 export const Footer = () => {
     return (
         <footer>
