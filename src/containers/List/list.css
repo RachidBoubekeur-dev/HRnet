@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Georama:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap");
+.List {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1.5em;
+}
+.List > div {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  max-width: 1100px;
+  height: auto;
+  background: #000000;
+  border-radius: 10px;
+  align-items: center;
+  padding: 45px 20px 45px 20px;
+  margin-bottom: 5em;
+  margin-top: 2em;
+  position: relative;
+}
+.List > div > h1 {
+  position: absolute;
+  top: 0;
+  color: #ffffff;
+  margin-top: 1.5em;
+  height: fit-content;
+  font-family: "Merriweather";
+  font-weight: 500;
+  text-decoration: underline;
+  font-size: 27px;
+}
+
+@media screen and (min-height: 958px) {
+  .List > div {
+    margin-bottom: 9em;
+    margin-top: 9em;
+  }
+}
+
+/*# sourceMappingURL=list.css.map */
