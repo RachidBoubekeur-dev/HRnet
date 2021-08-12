@@ -1,12 +1,49 @@
 @import './variables.scss';
 
 .App {
+    background: rgb(231, 231, 231);
+    background: -moz-radial-gradient(
+        circle,
+        rgba(231, 231, 231, 1) 39%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-radial-gradient(
+        circle,
+        rgba(231, 231, 231, 1) 39%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: radial-gradient(
+        circle,
+        rgba(231, 231, 231, 1) 39%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e7e7",endColorstr="#ffffff",GradientType=1);
     & > .loading {
         z-index: 1;
-        background: $color4;
+        background: rgb(255, 255, 255);
+        background: -moz-radial-gradient(
+            circle,
+            rgba(255, 255, 255, 1) 70%,
+            rgba(250, 247, 247, 1) 85%,
+            rgba(231, 231, 231, 1) 100%
+        );
+        background: -webkit-radial-gradient(
+            circle,
+            rgba(255, 255, 255, 1) 70%,
+            rgba(250, 247, 247, 1) 85%,
+            rgba(231, 231, 231, 1) 100%
+        );
+        background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 1) 70%,
+            rgba(250, 247, 247, 1) 85%,
+            rgba(231, 231, 231, 1) 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#e7e7e7",GradientType=1);
         width: 100%;
         height: 100%;
-        position: absolute;
+
+        position: fixed;
         top: 0;
         left: 0;
         display: flex;
@@ -18,6 +55,7 @@
             background: url('./assets/logo.jpg') no-repeat center;
             width: 100%;
             height: 271px;
+            margin-top: -1em;
         }
         & > div:nth-of-type(2) {
             width: 200px;
