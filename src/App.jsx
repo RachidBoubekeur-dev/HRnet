@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from './components/dumb/Header';
 import { Create } from './containers/Create';
+import { List } from './containers/List';
 import { Footer } from './components/dumb/Footer';
 import './App.css';
 
@@ -27,7 +28,7 @@ export const App = () => {
                 <main>
                     <Switch>
                         <Route path="/employee-list" exact>
-                            {/* <List /> */}
+                            <List />
                         </Route>
                         <Route path="/">
                             <Create />
