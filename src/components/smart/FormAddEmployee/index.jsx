@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import InputDate from '../../dumb/InputDate';
+import { Dropdowns } from '../../dumb/Dropdowns';
 import { Modal } from '../../dumb/Modal';
 import './formAddEmployee.css';
 
@@ -21,10 +23,10 @@ export const FormAddEmployee = () => {
                 <input type="text" id="last-name" />
 
                 <label htmlFor="date-of-birth">Date of Birth</label>
-                <input id="date-of-birth" type="date" />
+                <InputDate id="date-of-birth" />
 
                 <label htmlFor="start-date">Start Date</label>
-                <input id="start-date" type="date" />
+                <InputDate id="start-date" />
 
                 <fieldset>
                     <legend>Address</legend>
@@ -36,13 +38,7 @@ export const FormAddEmployee = () => {
                     <input id="city" type="text" />
 
                     <label htmlFor="state">State</label>
-                    <select name="state" id="state">
-                        <option>France</option>
-                        <option>France</option>
-                        <option>France</option>
-                        <option>France</option>
-                        <option>France</option>
-                    </select>
+                    <Dropdowns />
 
                     <label htmlFor="zip-code">Zip Code</label>
                     <input id="zip-code" type="number" />
