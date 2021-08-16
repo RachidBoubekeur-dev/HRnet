@@ -1,63 +1,73 @@
-@import url("https://fonts.googleapis.com/css2?family=Georama:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Georama:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap');
 .App {
-  background: #e7e7e7;
-  background: -moz-radial-gradient(circle, #e7e7e7 39%, white 100%);
-  background: -webkit-radial-gradient(circle, #e7e7e7 39%, white 100%);
-  background: radial-gradient(circle, #e7e7e7 39%, white 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e7e7",endColorstr="#ffffff",GradientType=1);
+    background: #e7e7e7;
+    background: -moz-radial-gradient(circle, #e7e7e7 7%, white 61%);
+    background: -webkit-radial-gradient(circle, #e7e7e7 7%, white 61%);
+    background: radial-gradient(circle, #e7e7e7 7%, white 61%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e7e7",endColorstr="#ffffff",GradientType=1);
 }
 .App > .loading {
-  z-index: 1;
-  background: white;
-  background: -moz-radial-gradient(circle, white 70%, #faf7f7 85%, #e7e7e7 100%);
-  background: -webkit-radial-gradient(circle, white 70%, #faf7f7 85%, #e7e7e7 100%);
-  background: radial-gradient(circle, white 70%, #faf7f7 85%, #e7e7e7 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#e7e7e7",GradientType=1);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-self: center;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    z-index: 1;
+    background: white;
+    background: -moz-radial-gradient(
+        circle,
+        white 70%,
+        #faf7f7 85%,
+        #e7e7e7 100%
+    );
+    background: -webkit-radial-gradient(
+        circle,
+        white 70%,
+        #faf7f7 85%,
+        #e7e7e7 100%
+    );
+    background: radial-gradient(circle, white 70%, #faf7f7 85%, #e7e7e7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#e7e7e7",GradientType=1);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .App > .loading > div:nth-of-type(1) {
-  background: url("./assets/logo.jpg") no-repeat center;
-  width: 100%;
-  height: 271px;
-  margin-top: -1em;
+    background: url('./assets/logo.jpg') no-repeat center;
+    width: 100%;
+    height: 271px;
+    margin-top: -1em;
 }
 .App > .loading > div:nth-of-type(2) {
-  width: 200px;
-  height: 6px;
-  background: #ffffff;
-  border: 2.5px solid #000000;
-  border-radius: 10px;
-  margin-right: 7px;
-  padding: 0;
-  z-index: 1;
+    width: 200px;
+    height: 6px;
+    background: #ffffff;
+    border: 2.5px solid #000000;
+    border-radius: 10px;
+    margin-right: 7px;
+    padding: 0;
+    z-index: 1;
 }
 .App > .loading > div:nth-of-type(2) > p {
-  margin: 0px 0px 0px -0.5px;
-  width: 101%;
-  background: #000000;
-  height: 7px;
-  border-radius: 1px;
-  animation: barLoad 3000ms backwards;
+    margin: 0px 0px 0px -0.5px;
+    width: 101%;
+    background: #000000;
+    height: 7px;
+    border-radius: 1px;
+    animation: barLoad 3000ms backwards;
 }
 
 @keyframes barLoad {
-  0% {
-    width: 0%;
-    background: #000000;
-  }
-  100% {
-    width: 101%;
-    background: #000000;
-  }
+    0% {
+        width: 0%;
+        background: #000000;
+    }
+    100% {
+        width: 101%;
+        background: #000000;
+    }
 }
 
 /*# sourceMappingURL=App.css.map */
