@@ -6,17 +6,18 @@
     align-items: center;
     flex-direction: column;
     margin-top: 6em;
-    & > label,
+    & > div > label,
     legend,
-    fieldset > label {
+    fieldset > div > label {
         color: $color4;
         font-family: $police1;
         font-weight: 400;
         font-size: 21px;
     }
-    & > input,
-    select,
-    fieldset > input {
+    & > div > input,
+    div > select,
+    fieldset > div > input,
+    fieldset > div > select{
         outline: none;
         width: 200px;
         height: 30px;
@@ -35,6 +36,14 @@
     }
 
     & > .btnSave {
+        outline: none;
+        width: 200px;
+        height: 30px;
+        border: 2px solid white;
+        border-radius: 3px;
+        font-family: 'Georama';
+        font-weight: 400;
+        font-size: 21px;
         margin: 2em auto 0 auto;
         color: $color5;
         background: $color4;

@@ -6,17 +6,18 @@
     flex-direction: column;
     margin-top: 6em;
 }
-.FormAddEmployee > label,
+.FormAddEmployee > div > label,
 .FormAddEmployee legend,
-.FormAddEmployee fieldset > label {
+.FormAddEmployee fieldset > div > label {
     color: #ffffff;
     font-family: 'Georama';
     font-weight: 400;
     font-size: 21px;
 }
-.FormAddEmployee > input,
-.FormAddEmployee select,
-.FormAddEmployee fieldset > input {
+.FormAddEmployee > div > input,
+.FormAddEmployee > div > select,
+.FormAddEmployee fieldset > div > input,
+.FormAddEmployee fieldset > div > select {
     outline: none;
     width: 200px;
     height: 30px;
@@ -33,6 +34,14 @@
     flex-direction: column;
 }
 .FormAddEmployee > .btnSave {
+    outline: none;
+    width: 200px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-family: 'Georama';
+    font-weight: 400;
+    font-size: 21px;
     margin: 2em auto 0 auto;
     color: #000000;
     background: #ffffff;
