@@ -2,10 +2,10 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Dropdowns component dumb
+ * Dropdowns component smart
  */
 const Dropdowns = (props) => {
-    const refState = useRef();
+    const select = useRef();
     const stateDropdowns = [
         {
             name: 'Alabama',
@@ -245,33 +245,71 @@ const Dropdowns = (props) => {
         },
     ];
 
+    const arrayDepartment = [
+        'Sales',
+        'Marketing',
+        'Engineering',
+        'Human Resources',
+        'Legal',
+    ];
+
     /**
      * America states list table
      */
-    const VerifState = () => {
-        if (refState.current.value.length === 2) {
-            refState.current.style.border = '2px solid green';
-            props.setValidState(true);
-            props.setValueState(refState.current.value);
-        } else {
-            refState.current.style.border = '2px solid red';
-            props.setValidState(false);
-            props.setValueState('');
+    const VerifSelect = () => {
+        switch (props.control) {
+            case 'state':
+                if (select.current.value.length === 2) {
+                    select.current.style.border = '2px solid green';
+                    props.setValid(true);
+                    props.setValue(select.current.value);
+                } else {
+                    select.current.style.border = '2px solid red';
+                    props.setValid(false);
+                    props.setValue('');
+                }
+                break;
+            case 'department':
+                const valueExist = arrayDepartment.indexOf(select.current.value);
+                if (valueExist !== -1) {
+                    select.current.style.border = '2px solid green';
+                    props.setValid(true);
+                    props.setValue(select.current.value);
+                } else {
+                    select.current.style.border = '2px solid red';
+                    props.setValid(false);
+                    props.setValue('');
+                }
+                break;
+            default:
+                break;
         }
     };
 
     return (
-        <select name="state" id="state" ref={refState} onChange={VerifState}>
-            {stateDropdowns.map((state, key) => (
-                <option key={key} value={state.abbreviation}>
-                    {state.name}
-                </option>
-            ))}
-        </select>
+        <div>
+            <label htmlFor={props.id}>{props.label}</label>
+            <select id={props.id} ref={select} onChange={VerifSelect}>
+                {props.control === 'state' ? (
+                    stateDropdowns.map((state, key) => (
+                    <option key={key} value={state.abbreviation}>
+                        {state.name}
+                    </option>
+                ))) : (
+                    arrayDepartment.map((department, key) => (
+                    <option key={key} value={department}>
+                        {department}
+                    </option>
+                )))}
+            </select>
+        </div>
     );
 };
 
 Dropdowns.propTypes = {
+    control: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
     setValidState: PropTypes.func.isRequired,
     setValueState: PropTypes.func.isRequired,
 };

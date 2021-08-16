@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { add } from '../../../slice/Employee';
 import Input from '../../smart/Input';
-import Dropdowns from '../../dumb/Dropdowns';
+import Dropdowns from '../../smart/Dropdowns';
 import { Modal } from '../../dumb/Modal';
 import './formAddEmployee.css';
 
