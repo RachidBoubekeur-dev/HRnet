@@ -21,7 +21,7 @@
         width: 200px;
         height: 30px;
         margin: 15px 20px 25px 20px;
-        border: 1px solid white;
+        border: 2px solid white;
         border-radius: 3px;
         font-family: $police1;
         font-weight: 400;
@@ -61,7 +61,7 @@
 
 @media screen and (min-width: 1200px) {
     .FormAddEmployee {
-        width: 700px;
+        width: 705px;
         flex-wrap: wrap;
         justify-content: flex-end;
         & > fieldset {
