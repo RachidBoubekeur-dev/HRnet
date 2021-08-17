@@ -8,7 +8,7 @@ const Input = (props) => {
     const input = useRef();
     const regex =
         /^[ a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-]+$/; // eslint-disable-line
-    
+
     /**
      * Validity check of form fields
      */
@@ -29,7 +29,7 @@ const Input = (props) => {
                     props.setValue('');
                 }
                 break;
-            
+
             case 'date':
                 if (input.current.value.length === 10) {
                     input.current.style.border = '2px solid green';
@@ -44,7 +44,7 @@ const Input = (props) => {
                     props.setValue('');
                 }
                 break;
-            
+
             case 'street':
                 if (
                     input.current.value.length >= 10 &&
@@ -59,7 +59,7 @@ const Input = (props) => {
                     props.setValue('');
                 }
                 break;
-            
+
             case 'city':
                 if (input.current.value.length >= 3 && input.current.value.length <= 50) {
                     input.current.style.border = '2px solid green';
@@ -71,7 +71,7 @@ const Input = (props) => {
                     props.setValue('');
                 }
                 break;
-            
+
             case 'zipCode':
                 if (input.current.value >= 1) {
                     input.current.style.border = '2px solid green';
