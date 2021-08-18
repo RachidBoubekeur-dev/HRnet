@@ -292,15 +292,15 @@ const Dropdowns = (props) => {
             <select id={props.id} ref={select} onChange={VerifSelect}>
                 {props.control === 'state' ? (
                     stateDropdowns.map((state, key) => (
-                    <option key={key} value={state.abbreviation}>
-                        {state.name}
-                    </option>
-                ))) : (
+                        <option key={key} value={state.abbreviation}>
+                            {state.name}
+                        </option>
+                    ))) : (
                     arrayDepartment.map((department, key) => (
-                    <option key={key} value={department}>
-                        {department}
-                    </option>
-                )))}
+                        <option key={key} value={department}>
+                            {department}
+                        </option>
+                    )))}
             </select>
         </div>
     );
@@ -310,8 +310,8 @@ Dropdowns.propTypes = {
     control: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    setValidState: PropTypes.func.isRequired,
-    setValueState: PropTypes.func.isRequired,
+    setValid: PropTypes.func.isRequired,
+    setValue: PropTypes.func.isRequired,
 };
 
 export default Dropdowns;
