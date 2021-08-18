@@ -1,16 +1,21 @@
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { employeeSelector } from '../../../slice/Employee';
 import './listEmployee.css';
 
 /**
  * ListEmployee component smart
  */
 export const ListEmployee = () => {
+    const state = useSelector(employeeSelector);
+    const [show, setShow] = useState(10);
     return (
         <div className="listEmployee">
             <div className="showSearch">
                 <div>
                     <label htmlFor="show">
                         Show
-                        <select id="show">
+                        <select id="show" onChange={(e) => setShow(parseInt(e.target.value))}>
                             <option>10</option>
                             <option>25</option>
                             <option>50</option>
@@ -26,22 +31,38 @@ export const ListEmployee = () => {
             </div>
             <table className="table">
                 <thead>
-                    <tr>
-                        <th>First Name <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>Last Name <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>Start Date <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>Department <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>Date of Birth <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>Street <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>City <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>State <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
-                        <th>Zip Code <p><i className="fas fa-caret-up"></i><i className="fas fa-caret-down"></i></p></th>
+                    <tr role="row">
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Start Date</th>
+                        <th>Department</th>
+                        <th>Date of Birth</th>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip Code</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th colSpan="9">No data available in table</th>
-                    </tr>
+                    {state.employee.length > 0 ? (
+                        state.employee.map((employee, index) => index <= show && (
+                            <tr role="row" key={index}>
+                                <td>{employee.FirstName}</td>
+                                <td>{employee.LastName}</td>
+                                <td>{employee.StartDate}</td>
+                                <td>{employee.Department}</td>
+                                <td>{employee.DateBirth}</td>
+                                <td>{employee.Street}</td>
+                                <td>{employee.City}</td>
+                                <td>{employee.State}</td>
+                                <td>{employee.ZipCode}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr role="row">
+                            <td colSpan="9">No data available in table</td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
             <div className="showingPreviousOrNext">
