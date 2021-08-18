@@ -29,13 +29,13 @@ export const FormAddEmployee = () => {
     const [validCity, setValidCity] = useState(false);
     const [valueCity, setValueCity] = useState('');
 
-    const [validState, setValidState] = useState(true);
+    const [validState, setValidState] = useState(false);
     const [valueState, setValueState] = useState('');
 
-    const [validZipCode, setValidZipCode] = useState(true);
+    const [validZipCode, setValidZipCode] = useState(false);
     const [valueZipCode, setValueZipCode] = useState('');
-    
-    const [validDepartment, setValidDepartment] = useState(true);
+
+    const [validDepartment, setValidDepartment] = useState(false);
     const [valueDepartment, setValueDepartment] = useState('');
 
     const [modal, setModal] = useState(false);
@@ -157,7 +157,7 @@ export const FormAddEmployee = () => {
                     setValid={setValidDepartment}
                     setValue={setValueDepartment}
                 />
-                
+
                 <input type="submit" className="btnSave" value="Save" />
             </form>
             {modal && <Modal setModal={setModal} />}

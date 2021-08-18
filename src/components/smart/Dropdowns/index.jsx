@@ -289,7 +289,7 @@ const Dropdowns = (props) => {
     return (
         <div>
             <label htmlFor={props.id}>{props.label}</label>
-            <select id={props.id} ref={select} onChange={VerifSelect}>
+            <select id={props.id} ref={select} onChange={VerifSelect} required>
                 {props.control === 'state' ? (
                     stateDropdowns.map((state, key) => (
                         <option key={key} value={state.abbreviation}>
