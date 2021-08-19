@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { employeeSelector } from '../../../slice/Employee';
 import './listEmployee.css';
 
@@ -9,13 +9,35 @@ import './listEmployee.css';
 export const ListEmployee = () => {
     const state = useSelector(employeeSelector);
     const [show, setShow] = useState(10);
+    const refShow = useRef();
+    const [start, setStart] = useState(0);
+    const employee = state.employee.slice(start, show);
+
+    const InitShow = (value) => {
+        setStart(0);
+        setShow(value);
+    };
+
+    const NextTable = () => {
+        if (state.employee.length > show) {
+            setStart(start + parseInt(refShow.current.value));
+            setShow(show + parseInt(refShow.current.value));
+        }
+    };
+
+    const PreviousTable = () => {
+        if (start !== 0) {
+            setStart(start - parseInt(refShow.current.value));
+            setShow(show - parseInt(refShow.current.value));
+        }
+    };
     return (
         <div className="listEmployee">
             <div className="showSearch">
                 <div>
                     <label htmlFor="show">
                         Show
-                        <select id="show" onChange={(e) => setShow(parseInt(e.target.value))}>
+                        <select id="show" ref={refShow} onChange={(e) => InitShow(parseInt(e.target.value))}>
                             <option>10</option>
                             <option>25</option>
                             <option>50</option>
@@ -45,7 +67,7 @@ export const ListEmployee = () => {
                 </thead>
                 <tbody>
                     {state.employee.length > 0 ? (
-                        state.employee.map((employee, index) => index <= show && (
+                        employee.map((employee, index) => (
                             <tr role="row" key={index}>
                                 <td>{employee.FirstName}</td>
                                 <td>{employee.LastName}</td>
@@ -67,10 +89,14 @@ export const ListEmployee = () => {
             </table>
             <div className="showingPreviousOrNext">
                 <div>
-                    <p>Showing 0 to 0 of 0 entries</p>
+                    {state.employee.length > 0 ? (
+                        <p>Showing {start + 1} to {show > state.employee.length ? state.employee.length : show} of {state.employee.length} entries</p>
+                    ) : (
+                        <p>Showing 0 to 0 of 0 entries</p>
+                    )}
                 </div>
                 <div>
-                    <p><span>Previous</span><span>Next</span></p>
+                    <p><span onClick={PreviousTable}>Previous</span><span onClick={NextTable}>Next</span></p>
                 </div>
             </div>
         </div>
