@@ -11,24 +11,52 @@ export const ListEmployee = () => {
     const [show, setShow] = useState(10);
     const refShow = useRef();
     const [start, setStart] = useState(0);
-    const employee = state.employee.slice(start, show);
+    const [arrayEmployee, setArrayEmployee] = useState(state.employee.slice(start, show));
+
+    const Search = (search) => {
+        setArrayEmployee(state.employee.filter(employee => {
+            if (
+                employee.FirstName.toLowerCase().includes(search.toLowerCase()) ||
+                employee.LastName.toLowerCase().includes(search.toLowerCase()) ||
+                employee.StartDate.toLowerCase().includes(search.toLowerCase()) ||
+                employee.Department.toLowerCase().includes(search.toLowerCase()) ||
+                employee.DateBirth.toLowerCase().includes(search.toLowerCase()) ||
+                employee.Street.toLowerCase().includes(search.toLowerCase()) ||
+                employee.City.toLowerCase().includes(search.toLowerCase()) ||
+                employee.State.toLowerCase().includes(search.toLowerCase()) ||
+                employee.ZipCode.toLowerCase().includes(search.toLowerCase())
+            ) {
+                return true;
+            }
+            return false;
+        }).slice(0, parseInt(refShow.current.value)));
+    };
 
     const InitShow = (value) => {
         setStart(0);
         setShow(value);
+        setArrayEmployee(state.employee.slice(0, value));
     };
 
     const NextTable = () => {
         if (state.employee.length > show) {
-            setStart(start + parseInt(refShow.current.value));
-            setShow(show + parseInt(refShow.current.value));
+            const newStart = start + parseInt(refShow.current.value);
+            const newShow = show + parseInt(refShow.current.value);
+            setStart(newStart);
+            setShow(newShow);
+            setArrayEmployee(state.employee.slice(newStart, newShow));
+            console.log(newStart, newShow);
         }
     };
 
     const PreviousTable = () => {
         if (start !== 0) {
-            setStart(start - parseInt(refShow.current.value));
-            setShow(show - parseInt(refShow.current.value));
+            const newStart = start - parseInt(refShow.current.value);
+            const newShow = show - parseInt(refShow.current.value);
+            setStart(newStart);
+            setShow(newShow);
+            setArrayEmployee(state.employee.slice(newStart, newShow));
+            console.log(newStart, newShow);
         }
     };
     return (
@@ -48,7 +76,7 @@ export const ListEmployee = () => {
                 </div>
                 <div>
                     <label htmlFor="search">Search: </label>
-                    <input type="search" id="search" />
+                    <input type="search" id="search" onChange={(e) => Search(e.target.value)} />
                 </div>
             </div>
             <table className="table">
@@ -67,19 +95,25 @@ export const ListEmployee = () => {
                 </thead>
                 <tbody>
                     {state.employee.length > 0 ? (
-                        employee.map((employee, index) => (
-                            <tr role="row" key={index}>
-                                <td>{employee.FirstName}</td>
-                                <td>{employee.LastName}</td>
-                                <td>{employee.StartDate}</td>
-                                <td>{employee.Department}</td>
-                                <td>{employee.DateBirth}</td>
-                                <td>{employee.Street}</td>
-                                <td>{employee.City}</td>
-                                <td>{employee.State}</td>
-                                <td>{employee.ZipCode}</td>
+                        arrayEmployee.length > 0 ? (
+                            arrayEmployee.map((employee, index) => (
+                                <tr role="row" key={index}>
+                                    <td>{employee.FirstName}</td>
+                                    <td>{employee.LastName}</td>
+                                    <td>{employee.StartDate}</td>
+                                    <td>{employee.Department}</td>
+                                    <td>{employee.DateBirth}</td>
+                                    <td>{employee.Street}</td>
+                                    <td>{employee.City}</td>
+                                    <td>{employee.State}</td>
+                                    <td>{employee.ZipCode}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr role="row">
+                                <td colSpan="9">No matching records found</td>
                             </tr>
-                        ))
+                        )
                     ) : (
                         <tr role="row">
                             <td colSpan="9">No data available in table</td>
