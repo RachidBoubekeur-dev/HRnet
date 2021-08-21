@@ -11,8 +11,13 @@ export const ListEmployee = () => {
     const [show, setShow] = useState(10);
     const refShow = useRef();
     const [start, setStart] = useState(0);
+    const [sortActive, setSortActive] = useState(false);
     const [arrayEmployee, setArrayEmployee] = useState(state.employee.slice(start, show));
 
+    /**
+     * Search filters employee data based on the user's search
+     * @param {String} search user search
+     */
     const Search = (search) => {
         setArrayEmployee(state.employee.filter(employee => {
             if (
@@ -32,12 +37,132 @@ export const ListEmployee = () => {
         }).slice(0, parseInt(refShow.current.value)));
     };
 
+    /**
+     * InitShow limit of items
+     * @param {Number} value
+     */
     const InitShow = (value) => {
         setStart(0);
         setShow(value);
         setArrayEmployee(state.employee.slice(0, value));
     };
 
+    /**
+     * Sort sort employee data
+     * @param {String} type Text or Date or Number
+     * @param {String} action item to sort
+     */
+    const Sort = (type, action) => {
+        switch (type) {
+            case 'Text':
+                setArrayEmployee(arrayEmployee.sort((a, b) => {
+                    let valueA;
+                    let valueB;
+                    switch (action) {
+                        case 'FirstName':
+                            valueA = a.FirstName.toLowerCase();
+                            valueB = b.FirstName.toLowerCase();
+                            break;
+
+                        case 'LastName':
+                            valueA = a.LastName.toLowerCase();
+                            valueB = b.LastName.toLowerCase();
+                            break;
+
+                        case 'Department':
+                            valueA = a.Department.toLowerCase();
+                            valueB = b.Department.toLowerCase();
+                            break;
+
+                        case 'Street':
+                            valueA = a.Street.toLowerCase();
+                            valueB = b.Street.toLowerCase();
+                            break;
+
+                        case 'City':
+                            valueA = a.City.toLowerCase();
+                            valueB = b.City.toLowerCase();
+                            break;
+
+                        case 'State':
+                            valueA = a.State.toLowerCase();
+                            valueB = b.State.toLowerCase();
+                            break;
+
+                        default:
+                            valueA = a.FirstName.toLowerCase();
+                            valueB = b.FirstName.toLowerCase();
+                            break;
+                    }
+                    if (!sortActive) {
+                        setSortActive(true);
+                        if (valueA < valueB) return -1;
+                        else return 1;
+                    } else {
+                        setSortActive(false);
+                        if (valueA < valueB) return 1;
+                        else return -1;
+                    }
+                }));
+                break;
+
+            case 'Date':
+                setArrayEmployee(arrayEmployee.sort((a, b) => {
+                    let valueA;
+                    let valueB;
+                    switch (action) {
+                        case 'StartDate':
+                            valueA = parseInt(a.StartDate.split('/').join(''));
+                            valueB = parseInt(b.StartDate.split('/').join(''));
+                            break;
+
+                        case 'DateBirth':
+                            valueA = parseInt(a.DateBirth.split('/').join(''));
+                            valueB = parseInt(b.DateBirth.split('/').join(''));
+                            break;
+
+                        default:
+                            valueA = parseInt(a.StartDate.split('/').join(''));
+                            valueB = parseInt(b.StartDate.split('/').join(''));
+                            break;
+                    }
+                    if (!sortActive) {
+                        setSortActive(true);
+                        if (valueA < valueB) return 1;
+                        else return -1;
+                    } else {
+                        setSortActive(false);
+                        if (valueA < valueB) return -1;
+                        else return 1;
+                    }
+                }));
+                setSortActive(!sortActive);
+                break;
+
+            case 'Number':
+                setArrayEmployee(arrayEmployee.sort((a, b) => {
+                    const valueA = parseInt(a.StartDate);
+                    const valueB = parseInt(b.StartDate);
+                    if (!sortActive) {
+                        setSortActive(true);
+                        if (valueA < valueB) return -1;
+                        else return 1;
+                    } else {
+                        setSortActive(false);
+                        if (valueA < valueB) return 1;
+                        else return -1;
+                    }
+                }));
+                setSortActive(!sortActive);
+                break;
+            default:
+                break;
+        }
+    };
+
+    /**
+     * NextTable display the following data
+     */
     const NextTable = () => {
         if (state.employee.length > show) {
             const newStart = start + parseInt(refShow.current.value);
@@ -45,10 +170,12 @@ export const ListEmployee = () => {
             setStart(newStart);
             setShow(newShow);
             setArrayEmployee(state.employee.slice(newStart, newShow));
-            console.log(newStart, newShow);
         }
     };
 
+    /**
+     * PreviousTable display previous data
+     */
     const PreviousTable = () => {
         if (start !== 0) {
             const newStart = start - parseInt(refShow.current.value);
@@ -56,7 +183,6 @@ export const ListEmployee = () => {
             setStart(newStart);
             setShow(newShow);
             setArrayEmployee(state.employee.slice(newStart, newShow));
-            console.log(newStart, newShow);
         }
     };
     return (
@@ -82,15 +208,15 @@ export const ListEmployee = () => {
             <table className="table">
                 <thead>
                     <tr role="row">
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Start Date</th>
-                        <th>Department</th>
-                        <th>Date of Birth</th>
-                        <th>Street</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zip Code</th>
+                        <th onClick={() => Sort('Text', 'FirstName')}>First Name</th>
+                        <th onClick={() => Sort('Text', 'LastName')}>Last Name</th>
+                        <th onClick={() => Sort('Date', 'StartDate')}>Start Date</th>
+                        <th onClick={() => Sort('Text', 'Department')}>Department</th>
+                        <th onClick={() => Sort('Date', 'DateBirth')}>Date of Birth</th>
+                        <th onClick={() => Sort('Text', 'Street')}>Street</th>
+                        <th onClick={() => Sort('Text', 'City')}>City</th>
+                        <th onClick={() => Sort('Text', 'State')}>State</th>
+                        <th onClick={() => Sort('Number', 'ZipCode')}>Zip Code</th>
                     </tr>
                 </thead>
                 <tbody>
