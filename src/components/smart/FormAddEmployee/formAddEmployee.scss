@@ -1,0 +1,82 @@
+@import '../../../utils/_variables';
+
+.FormAddEmployee {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6em;
+    & > div > label,
+    legend,
+    fieldset > div > label {
+        color: $color4;
+        font-family: $police1;
+        font-weight: 400;
+        font-size: 21px;
+    }
+    & > div > input,
+    div > select,
+    fieldset > div > input,
+    fieldset > div > select{
+        outline: none;
+        width: 200px;
+        height: 30px;
+        margin: 15px 20px 25px 20px;
+        border: 2px solid white;
+        border-radius: 3px;
+        font-family: $police1;
+        font-weight: 400;
+        font-size: 21px;
+    }
+
+    & > fieldset {
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    & > .btnSave {
+        outline: none;
+        width: 200px;
+        height: 30px;
+        border: 2px solid white;
+        border-radius: 3px;
+        font-family: 'Georama';
+        font-weight: 400;
+        font-size: 21px;
+        margin: 2em auto 0 auto;
+        color: $color5;
+        background: $color4;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .FormAddEmployee {
+        align-items: baseline;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 384px;
+        & > fieldset {
+            display: flex;
+            align-items: baseline;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 25px;
+            margin: 30px 0px 30px 0px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .FormAddEmployee {
+        width: 705px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        & > fieldset {
+            justify-content: space-between;
+            padding: 22px;
+            margin: 30px 20px 30px 0px;
+        }
+    }
+}

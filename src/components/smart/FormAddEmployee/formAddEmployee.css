@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap');
+.FormAddEmployee {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6em;
+}
+.FormAddEmployee > div > label,
+.FormAddEmployee legend,
+.FormAddEmployee fieldset > div > label {
+    color: #ffffff;
+    font-family: 'Georama';
+    font-weight: 400;
+    font-size: 21px;
+}
+.FormAddEmployee > div > input,
+.FormAddEmployee > div > select,
+.FormAddEmployee fieldset > div > input,
+.FormAddEmployee fieldset > div > select {
+    outline: none;
+    width: 200px;
+    height: 30px;
+    margin: 15px 20px 25px 20px;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-family: 'Georama';
+    font-weight: 400;
+    font-size: 21px;
+}
+.FormAddEmployee > fieldset {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.FormAddEmployee > .btnSave {
+    outline: none;
+    width: 200px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-family: 'Georama';
+    font-weight: 400;
+    font-size: 21px;
+    margin: 2em auto 0 auto;
+    color: #000000;
+    background: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+    .FormAddEmployee {
+        align-items: baseline;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 384px;
+    }
+    .FormAddEmployee > fieldset {
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 25px;
+        margin: 30px 0px 30px 0px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .FormAddEmployee {
+        width: 705px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .FormAddEmployee > fieldset {
+        justify-content: space-between;
+        padding: 22px;
+        margin: 30px 20px 30px 0px;
+    }
+}
+
+/*# sourceMappingURL=formAddEmployee.css.map */

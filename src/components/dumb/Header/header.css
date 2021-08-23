@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Georama:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap");
+header {
+  display: flex;
+  width: 100%;
+  height: 90px;
+}
+header > nav {
+  width: 100%;
+}
+header > nav > ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: flex-end;
+  margin-right: 2em;
+  margin-top: 1.35em;
+}
+header > nav > ul > li {
+  list-style: none;
+  transition: all 1s;
+}
+header > nav > ul > li > a {
+  color: #000000;
+  text-decoration: none;
+  font-family: "Georama";
+  font-size: 20px;
+  font-weight: 500;
+  padding: 3px 8px 3px 8px;
+}
+header > nav > ul > li > .active {
+  background: #000000;
+  color: #ffffff;
+}
+header > nav > ul > li:nth-of-type(1) {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  animation: logo 80s infinite alternate-reverse backwards;
+}
+header > nav > ul > li:nth-of-type(1) > a {
+  padding: 0;
+}
+header > nav > ul > li:nth-of-type(1) > a > img {
+  width: 60px;
+  margin: 3px;
+}
+header > nav > ul > li:nth-of-type(1) > .active {
+  background: none;
+}
+header > nav > ul > li:nth-of-type(2) {
+  display: none;
+  position: absolute;
+  left: 2.9em;
+  margin-top: 1em;
+  padding: 0;
+}
+header > nav > ul > li:nth-of-type(2) > a {
+  font-family: "Merriweather";
+  font-size: 30px;
+  color: #000000;
+}
+header > nav > ul > li:nth-of-type(2) > .active {
+  background: none;
+}
+header > nav > ul > li:nth-of-type(3) {
+  margin-bottom: 0.5em;
+}
+header > nav > ul > li:nth-of-type(3) > a {
+  font-size: 19px;
+}
+
+@keyframes logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (min-width: 768px) {
+  header {
+    height: 53px;
+    border-bottom: 0.1px solid #000000;
+  }
+  header > nav > ul {
+    flex-direction: row;
+    margin: 0;
+    margin-top: -1px;
+    justify-content: flex-end;
+    align-items: baseline;
+  }
+  header > nav > ul > li > a {
+    height: 54px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  header > nav > ul > li:nth-of-type(1) > a {
+    height: auto;
+    width: auto;
+    display: block;
+  }
+  header > nav > ul > li:nth-of-type(1) > a > img {
+    width: 35px;
+  }
+  header > nav > ul > li:nth-of-type(2) {
+    display: block;
+    left: 3em;
+    margin-top: 0.5em;
+  }
+  header > nav > ul > li:nth-of-type(2) > a {
+    width: auto;
+    height: auto;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */
