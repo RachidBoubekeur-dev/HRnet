@@ -13,7 +13,7 @@ The project consists of update HRnet and convert it to React.
 
 ✔️ Programming in JavaScript with functional programming.
 
-✔️ Refondre une application pour réduire la dette technique.
+✔️ Redesign an application to reduce technical debt.
 
 ## 3. Project
 
